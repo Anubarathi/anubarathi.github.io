@@ -1,1 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anubarathi M | Creative Tech Portfolio</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0f1a;
+  --card:#121826;
+  --primary:#4f7cff;
+  --secondary:#6fd3ff;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+section{padding:120px 80px}
+h1,h2,h3{font-family:Playfair Display}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:5rem;
+}
+
+.hero h1 span{color:var(--primary)}
+
+.hero p{
+  margin-top:30px;
+  font-size:1.3rem;
+  max-width:700px;
+  color:var(--muted);
+  margin-inline:auto;
+}
+
+/* ABOUT */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+}
+
+.about p{
+  font-size:1.1rem;
+  line-height:1.9;
+  color:var(--muted);
+}
+
+.about-box{
+  background:var(--card);
+  padding:60px;
+  border-radius:30px;
+  box-shadow:0 30px 60px rgba(0,0,0,.6);
+}
+
+/* SKILLS */
+.skills-section h2{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:50px;
+  justify-items:center;
+}
+
+.skill-card{
+  background:var(--card);
+  padding:45px;
+  border-radius:30px;
+  text-align:center;
+  position:relative;
+  width:100%;
+  border:2px solid var(--primary); /* Outline only */
+}
+
+.skill-card h3{
+  font-size:1.5rem;
+  margin-bottom:10px;
+}
+
+.skill-card p{
+  color:var(--muted);
+}
+
+/* PROJECTS */
+.project{
+  background:var(--card);
+  padding:60px;
+  border-radius:40px;
+  margin-bottom:60px;
+  box-shadow:0 40px 80px rgba(0,0,0,.7);
+}
+
+.project h3{font-size:2.2rem}
+
+.project p{
+  margin-top:18px;
+  font-size:1.15rem;
+  color:var(--muted);
+}
+
+.project a{
+  display:inline-block;
+  margin-top:15px;
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  background:var(--primary);
+  padding:10px 20px;
+  border-radius:25px;
+  transition:0.3s;
+}
+
+.project a:hover{background:var(--secondary)}
+
+/* Projects heading spacing */
+.projects-heading{
+  margin-top:60px; /* space above Projects heading */
+  margin-bottom:40px; /* space below heading */
+  text-align:center;
+}
+
+/* CONTACT */
+.contact{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+  text-align:center;
+}
+
+.contact h2{font-size:3.2rem}
+
+.social-links{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+}
+
+.social-links a{
+  color:#fff;
+  font-size:2.5rem;
+  transition:transform .3s;
+}
+
+.social-links a:hover{
+  transform:scale(1.15);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  section{padding:80px 30px}
+  .about{grid-template-columns:1fr}
+  .hero h1{font-size:3.2rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div data-aos="fade-up">
+    <h1>Anubarathi <span>M</span></h1>
+    <p>
+      AWS Certified Cloud Practitioner and Java Developer passionate about building
+      scalable, secure, and meaningful software solutions.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div data-aos="fade-right">
+    <h2>About Me</h2>
+    <p>
+      I am pursuing a B.Sc. in Computer Science and have hands-on experience in Java, DBMS, AWS Cloud, and web technologies.
+      I enjoy taking complex problems and transforming them into reliable, scalable solutions.
+    </p>
+    <p>
+      I have worked on multiple projects where I designed database schemas, implemented backend logic, integrated cloud services, and ensured a smooth user experience.
+      My goal is to continuously learn and apply cutting-edge technologies to create real-world software that makes a difference.
+    </p>
+  </div>
+
+  <div class="about-box" data-aos="fade-left">
+    <h3>My Approach</h3>
+    <p>
+      I focus on building projects that are clear, maintainable, and scalable.
+      I combine strong fundamentals with practical implementation to deliver solutions that are secure and efficient.
+      Every project I work on is aimed at solving meaningful problems and providing value to users.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section">
+  <h2 data-aos="fade-up">Skills & Expertise</h2>
+  <div class="skills-grid">
+    <div class="skill-card" data-aos="zoom-in">
+      <h3>Java Development</h3>
+      <p>Strong foundation in OOP, JDBC, and backend logic.</p>
+    </div>
+    <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+      <h3>AWS Cloud</h3>
+      <p>Cloud fundamentals, deployment concepts, and certification knowledge.</p>
+    </div>
+    <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
+      <h3>Databases</h3>
+      <p>MySQL, DBMS concepts, relational design, and query optimization.</p>
+    </div>
+    <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
+      <h3>AI / ML Basics</h3>
+      <p>Understanding of ML models, evaluation metrics, and basic implementations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <h2 class="projects-heading" data-aos="fade-up">Projects</h2>
+
+  <div class="project" data-aos="fade-up">
+    <h3>User Authentication System</h3>
+    <p>
+      Full-stack authentication system implementing secure user registration, login, session handling, and validation workflows using modern web technologies.
+    </p>
+    <a href="https://github.com/Anubarathi/Full-Stack-Web-Development-Project" target="_blank">View on GitHub</a>
+  </div>
+
+  <div class="project" data-aos="fade-up" data-aos-delay="100">
+    <h3>Helpdesk Ticket Management System</h3>
+    <p>
+      Java and JDBC-based application to create, view, and manage support tickets. Implements database backend with CRUD operations for seamless ticket handling.
+    </p>
+    <a href="https://github.com/Anubarathi/Helpdesk-Ticket-System-Java" target="_blank">View on GitHub</a>
+  </div>
+
+  <div class="project" data-aos="fade-up" data-aos-delay="200">
+    <h3>E-Commerce Management System</h3>
+    <p>
+      DBMS-based system to manage users, products, and orders. Structured relational database design ensures smooth management of e-commerce operations.
+    </p>
+    <a href="https://github.com/Anubarathi" target="_blank">View GitHub Profile</a>
+  </div>
+
+  <div class="project" data-aos="fade-up" data-aos-delay="300">
+    <h3>Food Calorie Estimation using AI / ML</h3>
+    <p>
+      AI/ML project that estimates calorie content from food images using machine learning models and image analysis techniques, providing a practical tool for dietary tracking.
+    </p>
+    <a href="https://github.com/Anubarathi" target="_blank">View GitHub Profile</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" data-aos="fade-up">
+  <h2>Let’s Work Together</h2>
+  <p data-aos="fade-up" data-aos-delay="100">Email: anubarathimanikandan@gmail.com</p>
+
+  <div class="social-links" data-aos="zoom-in" data-aos-delay="200">
+    <a href="https://www.linkedin.com/in/anubarathi" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/Anubarathi" target="_blank">
+      <i class="fa-brands fa-github"></i>
+    </a>
+  </div>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration:1000, once:true });
+</script>
+
+</body>
+</html>
+
 
