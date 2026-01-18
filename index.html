@@ -52,17 +52,33 @@
             transition: 0.3s ease;
         }
 
-        /* --- Background Effects --- */
+        /* --- BACKGROUND ANIMATION TEMPLATE --- */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
         .glow-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -1;
+            z-index: -2;
             background: 
-                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
+                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.12) 0%, transparent 35%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 35%);
+            animation: pulseGlow 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; transform: scale(1.05); }
         }
 
         /* --- Navigation --- */
@@ -75,9 +91,10 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(5, 5, 5, 0.7);
         }
 
         .brand {
@@ -99,6 +116,7 @@
 
         .nav-links a:hover {
             color: var(--text-main);
+            text-shadow: 0 0 10px var(--accent);
         }
 
         .cta-button {
@@ -109,11 +127,14 @@
             font-weight: 600;
             font-size: 0.9rem;
             display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .cta-button:hover {
-            background: #e0e0e0;
-            transform: translateY(-1px);
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px var(--accent);
         }
 
         /* --- Hero Section --- */
@@ -122,7 +143,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 140px 10vw 0 10vw; /* Increased top padding to fix blur overlap */
+            padding: 140px 10vw 0 10vw; 
             position: relative;
         }
 
@@ -158,8 +179,8 @@
         }
 
         .btn-outline:hover {
-            border-color: var(--text-main);
-            background: rgba(255,255,255,0.05);
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.05);
         }
 
         /* --- Grid System --- */
@@ -174,7 +195,21 @@
             padding-left: 1rem;
         }
 
-        /* --- Skills --- */
+        /* --- Skills & Projects (Floating Template) --- */
+        .skill-card, .project-card, .stat-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(5px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .skill-card:hover, .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255,255,255,0.06);
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -182,17 +217,8 @@
         }
 
         .skill-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
             padding: 2rem;
             border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .skill-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.05);
         }
 
         .skill-card h3 {
@@ -213,8 +239,6 @@
         }
 
         .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 2rem;
             position: relative;
@@ -223,13 +247,6 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .project-card:hover {
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-            transform: translateY(-5px);
         }
 
         .project-tags {
@@ -268,15 +285,6 @@
             gap: 0.5rem;
         }
 
-        .project-link::after {
-            content: '→';
-            transition: transform 0.3s;
-        }
-
-        .project-link:hover::after {
-            transform: translateX(5px);
-        }
-
         /* --- About Section --- */
         .about-container {
             display: grid;
@@ -298,7 +306,6 @@
         }
 
         .stat-box {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
             padding: 2rem;
             border-radius: 8px;
             text-align: center;
@@ -310,6 +317,7 @@
             font-weight: 700;
             font-family: 'Space Grotesk';
             color: var(--accent);
+            text-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
         }
 
         .stat-label {
@@ -324,6 +332,7 @@
             padding: 5rem 10vw;
             border-top: 1px solid var(--card-border);
             text-align: center;
+            position: relative;
         }
 
         .footer-title {
@@ -352,14 +361,10 @@
             gap: 10px;
         }
 
-        .social-links a i {
-            font-size: 1.2rem;
-        }
-
         .social-links a:hover {
             color: var(--text-main);
-            border-color: var(--text-main);
-            background: rgba(255,255,255,0.05);
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.1);
             transform: translateY(-3px);
         }
 
@@ -368,7 +373,6 @@
             font-size: 0.9rem;
         }
 
-        /* --- Mobile Responsive --- */
         @media (max-width: 768px) {
             nav .nav-links { display: none; }
             .about-container { grid-template-columns: 1fr; }
@@ -381,6 +385,9 @@
 <body>
 
     <div class="glow-bg"></div>
+    <div id="canvas-container">
+        <canvas id="particleCanvas"></canvas>
+    </div>
 
     <nav>
         <div class="brand">Anubarathi M.</div>
@@ -393,16 +400,15 @@
     </nav>
 
     <header data-aos="fade-up" data-aos-duration="1000">
-        <h1>Building scalable, secure, and meaningful software solutions.</h1>
-        <p class="hero-desc">
-            I am an AWS Certified Cloud Practitioner and Java Developer. I transform complex problems into reliable architectures.
-        </p>
-        <div class="hero-actions">
-            <a href="#projects" class="cta-button" style="padding: 1rem 2rem;">View Projects</a>
-            <a href="https://github.com/Anubarathi" target="_blank" class="btn-outline">GitHub Profile</a>
-        </div>
-    </header>
-
+    <h1>Where robust Java logic meets the <span style="background: linear-gradient(to right, var(--accent), #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">scale</span> of the AWS cloud.</h1>
+    <p class="hero-desc">
+        I am an AWS Certified Cloud Practitioner and Java Developer dedicated to building high-availability systems and optimized backend architectures.
+    </p>
+    <div class="hero-actions">
+        <a href="#projects" class="cta-button" style="padding: 1rem 2rem;">View Projects</a>
+        <a href="https://github.com/Anubarathi" target="_blank" class="btn-outline">GitHub Profile</a>
+    </div>
+</header>
     <section id="about">
         <h2 class="section-title" data-aos="fade-right">About Me</h2>
         <div class="about-container">
@@ -458,7 +464,7 @@
                     <h3>User Auth System</h3>
                     <p>A secure authentication system implementing registration, login, session handling, and validation workflows.</p>
                 </div>
-                <a href="https://github.com/Anubarathi/Full-Stack-Web-Development-Project" target="_blank" class="project-link">View Code</a>
+                <a href="https://github.com/Anubarathi/Full-Stack-Web-Development-Project" target="_blank" class="project-link">View Code →</a>
             </div>
 
             <div class="project-card" data-aos="fade-up" data-aos-delay="200">
@@ -470,7 +476,7 @@
                     <h3>Helpdesk Ticket System</h3>
                     <p>Create, view, and manage support tickets with a robust database backend and seamless CRUD operations.</p>
                 </div>
-                <a href="https://github.com/Anubarathi/Helpdesk-Ticket-System-Java" target="_blank" class="project-link">View Code</a>
+                <a href="https://github.com/Anubarathi/Helpdesk-Ticket-System-Java" target="_blank" class="project-link">View Code →</a>
             </div>
 
             <div class="project-card" data-aos="fade-up" data-aos-delay="300">
@@ -482,7 +488,7 @@
                     <h3>E-Commerce Management</h3>
                     <p>System to manage users, products, and orders. Structured relational database design for smooth operations.</p>
                 </div>
-                <a href="https://github.com/Anubarathi" target="_blank" class="project-link">View Code</a>
+                <a href="https://github.com/Anubarathi" target="_blank" class="project-link">View Code →</a>
             </div>
 
             <div class="project-card" data-aos="fade-up" data-aos-delay="400">
@@ -494,7 +500,7 @@
                     <h3>Calorie Estimator AI</h3>
                     <p>Estimates calorie content from food images using machine learning models and image analysis techniques.</p>
                 </div>
-                <a href="https://github.com/Anubarathi" target="_blank" class="project-link">View Code</a>
+                <a href="https://github.com/Anubarathi" target="_blank" class="project-link">View Code →</a>
             </div>
 
         </div>
@@ -526,7 +532,7 @@
             offset: 120
         });
 
-        // Simple Smooth Scroll for internal links
+        // Simple Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -535,6 +541,61 @@
                 });
             });
         });
+
+        // BACKGROUND PARTICLE ANIMATION ENGINE
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(99, 102, 241, 0.3)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function createParticles() {
+            const count = (canvas.width * canvas.height) / 15000;
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        createParticles();
+        animateParticles();
     </script>
 </body>
 </html>
