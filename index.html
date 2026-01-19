@@ -380,6 +380,37 @@
             section { padding: 4rem 1.5rem; }
             .social-links { flex-direction: column; align-items: center; }
         }
+/* Center single publication card */
+#publications .project-grid {
+    display: flex;
+    justify-content: center;
+}
+
+#publications .project-card {
+    max-width: 420px;
+    width: 100%;
+}
+
+/* Center Publications heading only */
+#publications .section-title {
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+}
+/* Stack AWS above Projects */
+.stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
     </style>
 </head>
 <body>
@@ -417,16 +448,30 @@
                 <p>I don't just write code; I design systems. Whether it's database schemas, backend logic, or cloud integration, my goal is to build software that is clear, maintainable, and solves real-world problems.</p>
             </div>
             <div class="stat-grid">
-                <div class="stat-box" data-aos="zoom-in" data-aos-delay="300">
-                    <span class="stat-number">AWS</span>
-                    <span class="stat-label">Certified</span>
-                </div>
-                <div class="stat-box" data-aos="zoom-in" data-aos-delay="400">
-                    <span class="stat-number">4+</span>
-                    <span class="stat-label">Major Projects</span>
-                </div>
-            </div>
+
+    <!-- Why Hire Me -->
+    <div class="stat-box" data-aos="zoom-in" data-aos-delay="250">
+        <span class="stat-number">Why Me?</span>
+        <span class="stat-label">
+            I don’t just code features — I design systems that last.<br>
+    Built with strong fundamentals, real projects, and cloud-ready thinking.
+        </span>
+    </div>
+
+    <!-- Right side stack -->
+    <div class="stat-stack">
+        <div class="stat-box" data-aos="zoom-in" data-aos-delay="300">
+            <span class="stat-number">AWS</span>
+            <span class="stat-label">Certified</span>
         </div>
+
+        <div class="stat-box" data-aos="zoom-in" data-aos-delay="400">
+            <span class="stat-number">4+</span>
+            <span class="stat-label">Major Projects</span>
+        </div>
+    </div>
+
+</div>
     </section>
 
     <section id="skills">
@@ -504,9 +549,49 @@
             </div>
 
         </div>
-    </section>
+<section id="publications">
+    <h2 class="section-title" data-aos="fade-up">Publications</h2>
 
-    <footer>
+    <div class="project-grid">
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <div>
+                <div class="project-tags">
+                    <span class="tag">Research Paper</span>
+                    <span class="tag">DBMS</span>
+                    <span class="tag">Information Systems</span>
+                    <span class="tag">Healthcare IT</span>
+                </div>
+
+                <h3>Pharmacy Management System – A Research Study</h3>
+
+                <p>
+                    Authored and published a research paper focusing on pharmacy management practices,
+                    operational workflows, inventory handling, and efficiency improvement strategies
+                    in healthcare environments. The study presents structured analysis and practical
+                    insights to enhance pharmacy operations through systematic management approaches.
+                </p>
+
+                <p style="color: var(--text-muted); font-size: 0.85rem;">
+                    Tech Stack: <strong>DBMS • Information Systems • Healthcare IT</strong>
+                </p>
+
+                <p style="color: var(--text-muted); font-size: 0.85rem;">
+                    Published in an International Peer-Reviewed Academic Journal
+                </p>
+            </div>
+
+            <a href="https://iaiest.com/iaj/index.php/IAJIR/article/view/IAJIR1008"
+               target="_blank"
+               class="project-link">
+               View Published Paper →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+       <footer>
         <h2 class="footer-title" data-aos="fade-up">Let’s build something amazing.</h2>
         <div class="social-links" data-aos="fade-up" data-aos-delay="200">
             <a href="mailto:anubarathimanikandan@gmail.com">
@@ -599,4 +684,3 @@
     </script>
 </body>
 </html>
-
